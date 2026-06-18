@@ -24,6 +24,7 @@
 #include "icache.h"
 #include "opamp.h"
 #include "spi.h"
+#include "tim.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -105,6 +106,7 @@ int main(void)
   MX_SPI1_Init();
   MX_OPAMP1_Init();
   MX_ADC1_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   OLED_Init();
   OLED_Clear();
