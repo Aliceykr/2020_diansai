@@ -3,11 +3,11 @@
 <title>Static Call Graph - [Base_2025_h503\Base_2025_h503.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image Base_2025_h503\Base_2025_h503.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6240002: Last Updated: Thu Jun 18 17:29:53 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6240002: Last Updated: Thu Jun 18 17:37:59 2026
 <BR><P>
-<H3>Maximum Stack Usage =        460 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =       1208 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-__rt_entry_main &rArr; main &rArr; MX_ADC1_Init &rArr; HAL_ADC_Init &rArr; HAL_ADC_MspInit &rArr; HAL_DMAEx_List_InsertNode &rArr; DMA_List_FindNode
+__rt_entry_main &rArr; main &rArr; OLED_Printf &rArr; OLED_DisplayFast &rArr; HAL_I2C_Master_Transmit &rArr; I2C_WaitOnFlagUntilTimeout &rArr; I2C_IsErrorOccurred
 <P>
 <H3>
 Mutually Recursive functions
@@ -397,8 +397,8 @@ Global Symbols
 <P><STRONG><a name="[12d]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[8c]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 460 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; MX_ADC1_Init &rArr; HAL_ADC_Init &rArr; HAL_ADC_MspInit &rArr; HAL_DMAEx_List_InsertNode &rArr; DMA_List_FindNode
+<BR><BR>[Stack]<UL><LI>Max Depth = 1208 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; OLED_Printf &rArr; OLED_DisplayFast &rArr; HAL_I2C_Master_Transmit &rArr; I2C_WaitOnFlagUntilTimeout &rArr; I2C_IsErrorOccurred
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -679,7 +679,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[f7]"></a>__aeabi_memcpy</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Display
+<BR><BR>[Called By]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_DisplayFast
 </UL>
 
 <P><STRONG><a name="[96]"></a>__rt_memcpy</STRONG> (Thumb, 138 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text), UNUSED)
@@ -1251,7 +1251,7 @@ Global Symbols
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnTXISFlagUntilTimeout
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_IsErrorOccurred
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Display
+<BR>[Called By]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_DisplayFast
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
 </UL>
 
@@ -1541,7 +1541,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f2]"></a>MX_TIM2_Init</STRONG> (Thumb, 120 bytes, Stack size 40 bytes, tim.o(.text.MX_TIM2_Init))
+<P><STRONG><a name="[f2]"></a>MX_TIM2_Init</STRONG> (Thumb, 118 bytes, Stack size 40 bytes, tim.o(.text.MX_TIM2_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = MX_TIM2_Init &rArr; HAL_TIMEx_MasterConfigSynchronization
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_MasterConfigSynchronization
@@ -1567,17 +1567,17 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32h503xx.o(RESET)
 </UL>
 <P><STRONG><a name="[f5]"></a>OLED_Clear</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, oled.o(.text.OLED_Clear))
-<BR><BR>[Stack]<UL><LI>Max Depth = 264 + Unknown Stack Size
-<LI>Call Chain = OLED_Clear &rArr; OLED_Display &rArr; HAL_I2C_Master_Transmit &rArr; I2C_WaitOnFlagUntilTimeout &rArr; I2C_IsErrorOccurred
+<BR><BR>[Stack]<UL><LI>Max Depth = 1136 + Unknown Stack Size
+<LI>Call Chain = OLED_Clear &rArr; OLED_DisplayFast &rArr; HAL_I2C_Master_Transmit &rArr; I2C_WaitOnFlagUntilTimeout &rArr; I2C_IsErrorOccurred
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Display
+<BR>[Calls]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_DisplayFast
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f6]"></a>OLED_Display</STRONG> (Thumb, 166 bytes, Stack size 176 bytes, oled.o(.text.OLED_Display))
-<BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = OLED_Display &rArr; HAL_I2C_Master_Transmit &rArr; I2C_WaitOnFlagUntilTimeout &rArr; I2C_IsErrorOccurred
+<P><STRONG><a name="[f6]"></a>OLED_DisplayFast</STRONG> (Thumb, 248 bytes, Stack size 1048 bytes, oled.o(.text.OLED_DisplayFast))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1128<LI>Call Chain = OLED_DisplayFast &rArr; HAL_I2C_Master_Transmit &rArr; I2C_WaitOnFlagUntilTimeout &rArr; I2C_IsErrorOccurred
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Master_Transmit
@@ -1590,11 +1590,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[f8]"></a>OLED_Init</STRONG> (Thumb, 704 bytes, Stack size 32 bytes, oled.o(.text.OLED_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 288 + Unknown Stack Size
-<LI>Call Chain = OLED_Init &rArr; OLED_Display &rArr; HAL_I2C_Master_Transmit &rArr; I2C_WaitOnFlagUntilTimeout &rArr; I2C_IsErrorOccurred
+<BR><BR>[Stack]<UL><LI>Max Depth = 1160 + Unknown Stack Size
+<LI>Call Chain = OLED_Init &rArr; OLED_DisplayFast &rArr; HAL_I2C_Master_Transmit &rArr; I2C_WaitOnFlagUntilTimeout &rArr; I2C_IsErrorOccurred
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Display
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_DisplayFast
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Master_Transmit
 </UL>
@@ -1602,10 +1602,10 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[f9]"></a>OLED_Printf</STRONG> (Thumb, 82 bytes, Stack size 56 bytes, oled.o(.text.OLED_Printf))
-<BR><BR>[Stack]<UL><LI>Max Depth = 312 + Unknown Stack Size
-<LI>Call Chain = OLED_Printf &rArr; OLED_Display &rArr; HAL_I2C_Master_Transmit &rArr; I2C_WaitOnFlagUntilTimeout &rArr; I2C_IsErrorOccurred
+<BR><BR>[Stack]<UL><LI>Max Depth = 1184 + Unknown Stack Size
+<LI>Call Chain = OLED_Printf &rArr; OLED_DisplayFast &rArr; HAL_I2C_Master_Transmit &rArr; I2C_WaitOnFlagUntilTimeout &rArr; I2C_IsErrorOccurred
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Display
+<BR>[Calls]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_DisplayFast
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vsnprintf
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowChar
 </UL>
@@ -1620,9 +1620,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[fb]"></a>OLED_ShowString</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, oled.o(.text.OLED_ShowString))
-<BR><BR>[Stack]<UL><LI>Max Depth = 272<LI>Call Chain = OLED_ShowString &rArr; OLED_Display &rArr; HAL_I2C_Master_Transmit &rArr; I2C_WaitOnFlagUntilTimeout &rArr; I2C_IsErrorOccurred
+<BR><BR>[Stack]<UL><LI>Max Depth = 1144<LI>Call Chain = OLED_ShowString &rArr; OLED_DisplayFast &rArr; HAL_I2C_Master_Transmit &rArr; I2C_WaitOnFlagUntilTimeout &rArr; I2C_IsErrorOccurred
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Display
+<BR>[Calls]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_DisplayFast
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowChar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1661,10 +1661,10 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32h503xx.o(RESET)
 </UL>
 <P><STRONG><a name="[8d]"></a>main</STRONG> (Thumb, 172 bytes, Stack size 24 bytes, main.o(.text.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 460 + Unknown Stack Size
-<LI>Call Chain = main &rArr; MX_ADC1_Init &rArr; HAL_ADC_Init &rArr; HAL_ADC_MspInit &rArr; HAL_DMAEx_List_InsertNode &rArr; DMA_List_FindNode
+<BR><BR>[Stack]<UL><LI>Max Depth = 1208 + Unknown Stack Size
+<LI>Call Chain = main &rArr; OLED_Printf &rArr; OLED_DisplayFast &rArr; HAL_I2C_Master_Transmit &rArr; I2C_WaitOnFlagUntilTimeout &rArr; I2C_IsErrorOccurred
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Display
+<BR>[Calls]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_DisplayFast
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Printf
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowString
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AD9833_SetFrequency

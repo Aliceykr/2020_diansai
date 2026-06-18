@@ -118,7 +118,7 @@ int main(void)
   OLED_ShowString(0, 0, "--- AD9833 DDS ---");
   OLED_Printf(0, 16, "Wave: Sine");
   OLED_Printf(0, 32, "Freq: %lu Hz", (unsigned long)freq_hz);
-  OLED_Display();
+  OLED_DisplayFast();
   /* USER CODE END 2 */
 
   /* Infinite loop */

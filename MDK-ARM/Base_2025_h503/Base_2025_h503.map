@@ -44,7 +44,7 @@ Section Cross References
     main.o(.text.main) refers to ad9833.o(.text.AD9833_SetFrequency) for AD9833_SetFrequency
     main.o(.text.main) refers to oled.o(.text.OLED_ShowString) for OLED_ShowString
     main.o(.text.main) refers to oled.o(.text.OLED_Printf) for OLED_Printf
-    main.o(.text.main) refers to oled.o(.text.OLED_Display) for OLED_Display
+    main.o(.text.main) refers to oled.o(.text.OLED_DisplayFast) for OLED_DisplayFast
     main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
     main.o(.text.SystemClock_Config) refers to rt_memclr_w.o(.text) for __aeabi_memclr4
     main.o(.text.SystemClock_Config) refers to stm32h5xx_hal_rcc.o(.text.HAL_RCC_OscConfig) for HAL_RCC_OscConfig
@@ -1395,11 +1395,11 @@ Section Cross References
     oled.o(.text.OLED_Init) refers to stm32h5xx_hal_i2c.o(.text.HAL_I2C_Master_Transmit) for HAL_I2C_Master_Transmit
     oled.o(.text.OLED_Init) refers to oled.o(.bss.OLED_Buffer) for OLED_Buffer
     oled.o(.text.OLED_Init) refers to rt_memclr_w.o(.text) for __aeabi_memclr4
-    oled.o(.text.OLED_Init) refers to oled.o(.text.OLED_Display) for OLED_Display
+    oled.o(.text.OLED_Init) refers to oled.o(.text.OLED_DisplayFast) for OLED_DisplayFast
     oled.o(.ARM.exidx.text.OLED_Init) refers to oled.o(.text.OLED_Init) for [Anonymous Symbol]
     oled.o(.text.OLED_Clear) refers to oled.o(.bss.OLED_Buffer) for OLED_Buffer
     oled.o(.text.OLED_Clear) refers to rt_memclr_w.o(.text) for __aeabi_memclr4
-    oled.o(.text.OLED_Clear) refers to oled.o(.text.OLED_Display) for OLED_Display
+    oled.o(.text.OLED_Clear) refers to oled.o(.text.OLED_DisplayFast) for OLED_DisplayFast
     oled.o(.ARM.exidx.text.OLED_Clear) refers to oled.o(.text.OLED_Clear) for [Anonymous Symbol]
     oled.o(.text.OLED_Display) refers to oled.o(.bss.OLED_Buffer) for OLED_Buffer
     oled.o(.text.OLED_Display) refers to i2c.o(.bss.hi2c2) for hi2c2
@@ -1413,19 +1413,19 @@ Section Cross References
     oled.o(.ARM.exidx.text.OLED_DisplayFast) refers to oled.o(.text.OLED_DisplayFast) for [Anonymous Symbol]
     oled.o(.text.OLED_Fill) refers to oled.o(.bss.OLED_Buffer) for OLED_Buffer
     oled.o(.text.OLED_Fill) refers to aeabi_memset4.o(.text) for __aeabi_memset4
-    oled.o(.text.OLED_Fill) refers to oled.o(.text.OLED_Display) for OLED_Display
+    oled.o(.text.OLED_Fill) refers to oled.o(.text.OLED_DisplayFast) for OLED_DisplayFast
     oled.o(.ARM.exidx.text.OLED_Fill) refers to oled.o(.text.OLED_Fill) for [Anonymous Symbol]
     oled.o(.text.OLED_DrawPixel) refers to oled.o(.bss.OLED_Buffer) for OLED_Buffer
     oled.o(.ARM.exidx.text.OLED_DrawPixel) refers to oled.o(.text.OLED_DrawPixel) for [Anonymous Symbol]
     oled.o(.text.OLED_ShowChar) refers to oled.o(.rodata.Font6x8) for Font6x8
     oled.o(.text.OLED_ShowChar) refers to oled.o(.bss.OLED_Buffer) for OLED_Buffer
     oled.o(.ARM.exidx.text.OLED_ShowChar) refers to oled.o(.text.OLED_ShowChar) for [Anonymous Symbol]
-    oled.o(.text.OLED_ShowString) refers to oled.o(.text.OLED_Display) for OLED_Display
+    oled.o(.text.OLED_ShowString) refers to oled.o(.text.OLED_DisplayFast) for OLED_DisplayFast
     oled.o(.text.OLED_ShowString) refers to oled.o(.text.OLED_ShowChar) for OLED_ShowChar
     oled.o(.ARM.exidx.text.OLED_ShowString) refers to oled.o(.text.OLED_ShowString) for [Anonymous Symbol]
     oled.o(.text.OLED_Printf) refers to vsnprintf.o(.text) for vsnprintf
     oled.o(.text.OLED_Printf) refers to oled.o(.text.OLED_ShowChar) for OLED_ShowChar
-    oled.o(.text.OLED_Printf) refers to oled.o(.text.OLED_Display) for OLED_Display
+    oled.o(.text.OLED_Printf) refers to oled.o(.text.OLED_DisplayFast) for OLED_DisplayFast
     oled.o(.ARM.exidx.text.OLED_Printf) refers to oled.o(.text.OLED_Printf) for [Anonymous Symbol]
     ad9833.o(.text.AD9833_Init) refers to ad9833.o(.bss.ad9833_fsel) for ad9833_fsel
     ad9833.o(.text.AD9833_Init) refers to ad9833.o(.data.ad9833_ctrl) for ad9833_ctrl
@@ -3137,8 +3137,8 @@ Removing Unused input sections from the image.
     Removing oled.o(.text), (0 bytes).
     Removing oled.o(.ARM.exidx.text.OLED_Init), (8 bytes).
     Removing oled.o(.ARM.exidx.text.OLED_Clear), (8 bytes).
+    Removing oled.o(.text.OLED_Display), (166 bytes).
     Removing oled.o(.ARM.exidx.text.OLED_Display), (8 bytes).
-    Removing oled.o(.text.OLED_DisplayFast), (248 bytes).
     Removing oled.o(.ARM.exidx.text.OLED_DisplayFast), (8 bytes).
     Removing oled.o(.text.OLED_Fill), (28 bytes).
     Removing oled.o(.ARM.exidx.text.OLED_Fill), (8 bytes).
@@ -3159,7 +3159,7 @@ Removing Unused input sections from the image.
     Removing ad9833.o(.text.AD9833_EnableOutput), (68 bytes).
     Removing ad9833.o(.ARM.exidx.text.AD9833_EnableOutput), (8 bytes).
 
-1357 unused section(s) (total 86338 bytes) removed from the image.
+1357 unused section(s) (total 86256 bytes) removed from the image.
 
 ==============================================================================
 
@@ -3549,67 +3549,67 @@ Image Symbol Table
     [Anonymous Symbol]                       0x08005658   Section        0  stm32h5xx_it.o(.text.MemManage_Handler)
     [Anonymous Symbol]                       0x0800565c   Section        0  stm32h5xx_it.o(.text.NMI_Handler)
     [Anonymous Symbol]                       0x08005660   Section        0  oled.o(.text.OLED_Clear)
-    [Anonymous Symbol]                       0x0800567c   Section        0  oled.o(.text.OLED_Display)
-    [Anonymous Symbol]                       0x08005724   Section        0  oled.o(.text.OLED_Init)
-    [Anonymous Symbol]                       0x080059e4   Section        0  oled.o(.text.OLED_Printf)
-    [Anonymous Symbol]                       0x08005a38   Section        0  oled.o(.text.OLED_ShowChar)
-    [Anonymous Symbol]                       0x08005d34   Section        0  oled.o(.text.OLED_ShowString)
-    [Anonymous Symbol]                       0x08005d70   Section        0  stm32h5xx_it.o(.text.PendSV_Handler)
-    RCCEx_PLL2_Config                        0x08005d75   Thumb Code   234  stm32h5xx_hal_rcc_ex.o(.text.RCCEx_PLL2_Config)
-    [Anonymous Symbol]                       0x08005d74   Section        0  stm32h5xx_hal_rcc_ex.o(.text.RCCEx_PLL2_Config)
-    SPI_CloseTransfer                        0x08005e61   Thumb Code   208  stm32h5xx_hal_spi.o(.text.SPI_CloseTransfer)
-    [Anonymous Symbol]                       0x08005e60   Section        0  stm32h5xx_hal_spi.o(.text.SPI_CloseTransfer)
-    [Anonymous Symbol]                       0x08005f30   Section        0  stm32h5xx_it.o(.text.SVC_Handler)
-    [Anonymous Symbol]                       0x08005f34   Section        0  stm32h5xx_it.o(.text.SysTick_Handler)
-    [Anonymous Symbol]                       0x08005f38   Section        0  main.o(.text.SystemClock_Config)
-    [Anonymous Symbol]                       0x08005ff8   Section        0  system_stm32h5xx.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x080060a8   Section        0  stm32h5xx_it.o(.text.UsageFault_Handler)
-    [Anonymous Symbol]                       0x080060ac   Section        0  main.o(.text.main)
-    CL$$btod_d2e                             0x08006188   Section       62  btod.o(CL$$btod_d2e)
-    CL$$btod_d2e_denorm_low                  0x080061c6   Section       70  btod.o(CL$$btod_d2e_denorm_low)
-    CL$$btod_d2e_norm_op1                    0x0800620c   Section       96  btod.o(CL$$btod_d2e_norm_op1)
-    CL$$btod_div_common                      0x0800626c   Section      824  btod.o(CL$$btod_div_common)
-    CL$$btod_e2e                             0x080065a4   Section      220  btod.o(CL$$btod_e2e)
-    CL$$btod_ediv                            0x08006680   Section       42  btod.o(CL$$btod_ediv)
-    CL$$btod_emul                            0x080066aa   Section       42  btod.o(CL$$btod_emul)
-    CL$$btod_mult_common                     0x080066d4   Section      580  btod.o(CL$$btod_mult_common)
-    i.__ARM_fpclassify                       0x08006918   Section        0  fpclassify.o(i.__ARM_fpclassify)
-    i._is_digit                              0x08006948   Section        0  __printf_wp.o(i._is_digit)
-    locale$$code                             0x08006958   Section       44  lc_numeric_c.o(locale$$code)
-    locale$$code                             0x08006984   Section       44  lc_ctype_c.o(locale$$code)
-    $v0                                      0x080069b0   Number         0  fpinit.o(x$fpl$fpinit)
-    x$fpl$fpinit                             0x080069b0   Section       26  fpinit.o(x$fpl$fpinit)
-    $v0                                      0x080069ca   Number         0  printf1.o(x$fpl$printf1)
-    x$fpl$printf1                            0x080069ca   Section        4  printf1.o(x$fpl$printf1)
-    $v0                                      0x080069ce   Number         0  printf2.o(x$fpl$printf2)
-    x$fpl$printf2                            0x080069ce   Section        4  printf2.o(x$fpl$printf2)
-    x$fpl$usenofp                            0x080069d2   Section        0  usenofp.o(x$fpl$usenofp)
-    initial_mbstate                          0x080069d4   Data           8  _printf_wctomb.o(.constdata)
-    .constdata                               0x080069d4   Section        8  _printf_wctomb.o(.constdata)
-    uc_hextab                                0x080069dc   Data          20  _printf_hex_int_ll_ptr.o(.constdata)
-    .constdata                               0x080069dc   Section       40  _printf_hex_int_ll_ptr.o(.constdata)
-    lc_hextab                                0x080069f0   Data          20  _printf_hex_int_ll_ptr.o(.constdata)
-    maptable                                 0x08006a04   Data          17  __printf_flags_ss_wp.o(.constdata)
-    .constdata                               0x08006a04   Section       17  __printf_flags_ss_wp.o(.constdata)
-    lc_hextab                                0x08006a15   Data          19  _printf_fp_hex.o(.constdata)
-    .constdata                               0x08006a15   Section       38  _printf_fp_hex.o(.constdata)
-    uc_hextab                                0x08006a28   Data          19  _printf_fp_hex.o(.constdata)
-    tenpwrs_x                                0x08006a3c   Data          60  bigflt0.o(.constdata)
-    .constdata                               0x08006a3c   Section      148  bigflt0.o(.constdata)
-    tenpwrs_i                                0x08006a78   Data          64  bigflt0.o(.constdata)
-    Font6x8                                  0x08006ae0   Data         576  oled.o(.rodata.Font6x8)
-    [Anonymous Symbol]                       0x08006ae0   Section        0  oled.o(.rodata.Font6x8)
-    locale$$data                             0x08006d40   Section       28  lc_numeric_c.o(locale$$data)
-    __lcnum_c_name                           0x08006d44   Data           2  lc_numeric_c.o(locale$$data)
-    __lcnum_c_start                          0x08006d4c   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_point                          0x08006d58   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_thousands                      0x08006d5a   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_grouping                       0x08006d5b   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_end                            0x08006d5c   Data           0  lc_numeric_c.o(locale$$data)
-    locale$$data                             0x08006d5c   Section      272  lc_ctype_c.o(locale$$data)
-    __lcctype_c_name                         0x08006d60   Data           2  lc_ctype_c.o(locale$$data)
-    __lcctype_c_start                        0x08006d68   Data           0  lc_ctype_c.o(locale$$data)
-    __lcctype_c_end                          0x08006e6c   Data           0  lc_ctype_c.o(locale$$data)
+    [Anonymous Symbol]                       0x0800567c   Section        0  oled.o(.text.OLED_DisplayFast)
+    [Anonymous Symbol]                       0x08005774   Section        0  oled.o(.text.OLED_Init)
+    [Anonymous Symbol]                       0x08005a34   Section        0  oled.o(.text.OLED_Printf)
+    [Anonymous Symbol]                       0x08005a88   Section        0  oled.o(.text.OLED_ShowChar)
+    [Anonymous Symbol]                       0x08005d84   Section        0  oled.o(.text.OLED_ShowString)
+    [Anonymous Symbol]                       0x08005dc0   Section        0  stm32h5xx_it.o(.text.PendSV_Handler)
+    RCCEx_PLL2_Config                        0x08005dc5   Thumb Code   234  stm32h5xx_hal_rcc_ex.o(.text.RCCEx_PLL2_Config)
+    [Anonymous Symbol]                       0x08005dc4   Section        0  stm32h5xx_hal_rcc_ex.o(.text.RCCEx_PLL2_Config)
+    SPI_CloseTransfer                        0x08005eb1   Thumb Code   208  stm32h5xx_hal_spi.o(.text.SPI_CloseTransfer)
+    [Anonymous Symbol]                       0x08005eb0   Section        0  stm32h5xx_hal_spi.o(.text.SPI_CloseTransfer)
+    [Anonymous Symbol]                       0x08005f80   Section        0  stm32h5xx_it.o(.text.SVC_Handler)
+    [Anonymous Symbol]                       0x08005f84   Section        0  stm32h5xx_it.o(.text.SysTick_Handler)
+    [Anonymous Symbol]                       0x08005f88   Section        0  main.o(.text.SystemClock_Config)
+    [Anonymous Symbol]                       0x08006048   Section        0  system_stm32h5xx.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x080060f8   Section        0  stm32h5xx_it.o(.text.UsageFault_Handler)
+    [Anonymous Symbol]                       0x080060fc   Section        0  main.o(.text.main)
+    CL$$btod_d2e                             0x080061d8   Section       62  btod.o(CL$$btod_d2e)
+    CL$$btod_d2e_denorm_low                  0x08006216   Section       70  btod.o(CL$$btod_d2e_denorm_low)
+    CL$$btod_d2e_norm_op1                    0x0800625c   Section       96  btod.o(CL$$btod_d2e_norm_op1)
+    CL$$btod_div_common                      0x080062bc   Section      824  btod.o(CL$$btod_div_common)
+    CL$$btod_e2e                             0x080065f4   Section      220  btod.o(CL$$btod_e2e)
+    CL$$btod_ediv                            0x080066d0   Section       42  btod.o(CL$$btod_ediv)
+    CL$$btod_emul                            0x080066fa   Section       42  btod.o(CL$$btod_emul)
+    CL$$btod_mult_common                     0x08006724   Section      580  btod.o(CL$$btod_mult_common)
+    i.__ARM_fpclassify                       0x08006968   Section        0  fpclassify.o(i.__ARM_fpclassify)
+    i._is_digit                              0x08006998   Section        0  __printf_wp.o(i._is_digit)
+    locale$$code                             0x080069a8   Section       44  lc_numeric_c.o(locale$$code)
+    locale$$code                             0x080069d4   Section       44  lc_ctype_c.o(locale$$code)
+    $v0                                      0x08006a00   Number         0  fpinit.o(x$fpl$fpinit)
+    x$fpl$fpinit                             0x08006a00   Section       26  fpinit.o(x$fpl$fpinit)
+    $v0                                      0x08006a1a   Number         0  printf1.o(x$fpl$printf1)
+    x$fpl$printf1                            0x08006a1a   Section        4  printf1.o(x$fpl$printf1)
+    $v0                                      0x08006a1e   Number         0  printf2.o(x$fpl$printf2)
+    x$fpl$printf2                            0x08006a1e   Section        4  printf2.o(x$fpl$printf2)
+    x$fpl$usenofp                            0x08006a22   Section        0  usenofp.o(x$fpl$usenofp)
+    initial_mbstate                          0x08006a24   Data           8  _printf_wctomb.o(.constdata)
+    .constdata                               0x08006a24   Section        8  _printf_wctomb.o(.constdata)
+    uc_hextab                                0x08006a2c   Data          20  _printf_hex_int_ll_ptr.o(.constdata)
+    .constdata                               0x08006a2c   Section       40  _printf_hex_int_ll_ptr.o(.constdata)
+    lc_hextab                                0x08006a40   Data          20  _printf_hex_int_ll_ptr.o(.constdata)
+    maptable                                 0x08006a54   Data          17  __printf_flags_ss_wp.o(.constdata)
+    .constdata                               0x08006a54   Section       17  __printf_flags_ss_wp.o(.constdata)
+    lc_hextab                                0x08006a65   Data          19  _printf_fp_hex.o(.constdata)
+    .constdata                               0x08006a65   Section       38  _printf_fp_hex.o(.constdata)
+    uc_hextab                                0x08006a78   Data          19  _printf_fp_hex.o(.constdata)
+    tenpwrs_x                                0x08006a8c   Data          60  bigflt0.o(.constdata)
+    .constdata                               0x08006a8c   Section      148  bigflt0.o(.constdata)
+    tenpwrs_i                                0x08006ac8   Data          64  bigflt0.o(.constdata)
+    Font6x8                                  0x08006b30   Data         576  oled.o(.rodata.Font6x8)
+    [Anonymous Symbol]                       0x08006b30   Section        0  oled.o(.rodata.Font6x8)
+    locale$$data                             0x08006d90   Section       28  lc_numeric_c.o(locale$$data)
+    __lcnum_c_name                           0x08006d94   Data           2  lc_numeric_c.o(locale$$data)
+    __lcnum_c_start                          0x08006d9c   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_point                          0x08006da8   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_thousands                      0x08006daa   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_grouping                       0x08006dab   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_end                            0x08006dac   Data           0  lc_numeric_c.o(locale$$data)
+    locale$$data                             0x08006dac   Section      272  lc_ctype_c.o(locale$$data)
+    __lcctype_c_name                         0x08006db0   Data           2  lc_ctype_c.o(locale$$data)
+    __lcctype_c_start                        0x08006db8   Data           0  lc_ctype_c.o(locale$$data)
+    __lcctype_c_end                          0x08006ebc   Data           0  lc_ctype_c.o(locale$$data)
     .L_MergedGlobals                         0x20000000   Data           8  stm32h5xx_hal.o(.data..L_MergedGlobals)
     [Anonymous Symbol]                       0x20000000   Section        0  stm32h5xx_hal.o(.data..L_MergedGlobals)
     ad9833_ctrl                              0x2000000c   Data           2  ad9833.o(.data.ad9833_ctrl)
@@ -3942,44 +3942,44 @@ Image Symbol Table
     MX_ICACHE_Init                           0x08005511   Thumb Code    34  icache.o(.text.MX_ICACHE_Init)
     MX_OPAMP1_Init                           0x08005535   Thumb Code    62  opamp.o(.text.MX_OPAMP1_Init)
     MX_SPI1_Init                             0x08005575   Thumb Code   106  spi.o(.text.MX_SPI1_Init)
-    MX_TIM2_Init                             0x080055e1   Thumb Code   120  tim.o(.text.MX_TIM2_Init)
+    MX_TIM2_Init                             0x080055e1   Thumb Code   118  tim.o(.text.MX_TIM2_Init)
     MemManage_Handler                        0x08005659   Thumb Code     2  stm32h5xx_it.o(.text.MemManage_Handler)
     NMI_Handler                              0x0800565d   Thumb Code     2  stm32h5xx_it.o(.text.NMI_Handler)
     OLED_Clear                               0x08005661   Thumb Code    26  oled.o(.text.OLED_Clear)
-    OLED_Display                             0x0800567d   Thumb Code   166  oled.o(.text.OLED_Display)
-    OLED_Init                                0x08005725   Thumb Code   704  oled.o(.text.OLED_Init)
-    OLED_Printf                              0x080059e5   Thumb Code    82  oled.o(.text.OLED_Printf)
-    OLED_ShowChar                            0x08005a39   Thumb Code   764  oled.o(.text.OLED_ShowChar)
-    OLED_ShowString                          0x08005d35   Thumb Code    60  oled.o(.text.OLED_ShowString)
-    PendSV_Handler                           0x08005d71   Thumb Code     2  stm32h5xx_it.o(.text.PendSV_Handler)
-    SVC_Handler                              0x08005f31   Thumb Code     2  stm32h5xx_it.o(.text.SVC_Handler)
-    SysTick_Handler                          0x08005f35   Thumb Code     4  stm32h5xx_it.o(.text.SysTick_Handler)
-    SystemClock_Config                       0x08005f39   Thumb Code   190  main.o(.text.SystemClock_Config)
-    SystemInit                               0x08005ff9   Thumb Code   174  system_stm32h5xx.o(.text.SystemInit)
-    UsageFault_Handler                       0x080060a9   Thumb Code     2  stm32h5xx_it.o(.text.UsageFault_Handler)
-    main                                     0x080060ad   Thumb Code   172  main.o(.text.main)
-    _btod_d2e                                0x08006189   Thumb Code    62  btod.o(CL$$btod_d2e)
-    _d2e_denorm_low                          0x080061c7   Thumb Code    70  btod.o(CL$$btod_d2e_denorm_low)
-    _d2e_norm_op1                            0x0800620d   Thumb Code    96  btod.o(CL$$btod_d2e_norm_op1)
-    __btod_div_common                        0x0800626d   Thumb Code   696  btod.o(CL$$btod_div_common)
-    _e2e                                     0x080065a5   Thumb Code   220  btod.o(CL$$btod_e2e)
-    _btod_ediv                               0x08006681   Thumb Code    42  btod.o(CL$$btod_ediv)
-    _btod_emul                               0x080066ab   Thumb Code    42  btod.o(CL$$btod_emul)
-    __btod_mult_common                       0x080066d5   Thumb Code   580  btod.o(CL$$btod_mult_common)
-    __ARM_fpclassify                         0x08006919   Thumb Code    48  fpclassify.o(i.__ARM_fpclassify)
-    _is_digit                                0x08006949   Thumb Code    14  __printf_wp.o(i._is_digit)
-    _get_lc_numeric                          0x08006959   Thumb Code    44  lc_numeric_c.o(locale$$code)
-    _get_lc_ctype                            0x08006985   Thumb Code    44  lc_ctype_c.o(locale$$code)
-    _fp_init                                 0x080069b1   Thumb Code    26  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x080069c9   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x080069c9   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    _printf_fp_dec                           0x080069cb   Thumb Code     4  printf1.o(x$fpl$printf1)
-    _printf_fp_hex                           0x080069cf   Thumb Code     4  printf2.o(x$fpl$printf2)
-    __I$use$fp                               0x080069d2   Number         0  usenofp.o(x$fpl$usenofp)
-    AHBPrescTable                            0x08006ad0   Data          16  system_stm32h5xx.o(.rodata.AHBPrescTable)
-    Region$$Table$$Base                      0x08006d20   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08006d40   Number         0  anon$$obj.o(Region$$Table)
-    __ctype                                  0x08006d69   Data           0  lc_ctype_c.o(locale$$data)
+    OLED_DisplayFast                         0x0800567d   Thumb Code   248  oled.o(.text.OLED_DisplayFast)
+    OLED_Init                                0x08005775   Thumb Code   704  oled.o(.text.OLED_Init)
+    OLED_Printf                              0x08005a35   Thumb Code    82  oled.o(.text.OLED_Printf)
+    OLED_ShowChar                            0x08005a89   Thumb Code   764  oled.o(.text.OLED_ShowChar)
+    OLED_ShowString                          0x08005d85   Thumb Code    60  oled.o(.text.OLED_ShowString)
+    PendSV_Handler                           0x08005dc1   Thumb Code     2  stm32h5xx_it.o(.text.PendSV_Handler)
+    SVC_Handler                              0x08005f81   Thumb Code     2  stm32h5xx_it.o(.text.SVC_Handler)
+    SysTick_Handler                          0x08005f85   Thumb Code     4  stm32h5xx_it.o(.text.SysTick_Handler)
+    SystemClock_Config                       0x08005f89   Thumb Code   190  main.o(.text.SystemClock_Config)
+    SystemInit                               0x08006049   Thumb Code   174  system_stm32h5xx.o(.text.SystemInit)
+    UsageFault_Handler                       0x080060f9   Thumb Code     2  stm32h5xx_it.o(.text.UsageFault_Handler)
+    main                                     0x080060fd   Thumb Code   172  main.o(.text.main)
+    _btod_d2e                                0x080061d9   Thumb Code    62  btod.o(CL$$btod_d2e)
+    _d2e_denorm_low                          0x08006217   Thumb Code    70  btod.o(CL$$btod_d2e_denorm_low)
+    _d2e_norm_op1                            0x0800625d   Thumb Code    96  btod.o(CL$$btod_d2e_norm_op1)
+    __btod_div_common                        0x080062bd   Thumb Code   696  btod.o(CL$$btod_div_common)
+    _e2e                                     0x080065f5   Thumb Code   220  btod.o(CL$$btod_e2e)
+    _btod_ediv                               0x080066d1   Thumb Code    42  btod.o(CL$$btod_ediv)
+    _btod_emul                               0x080066fb   Thumb Code    42  btod.o(CL$$btod_emul)
+    __btod_mult_common                       0x08006725   Thumb Code   580  btod.o(CL$$btod_mult_common)
+    __ARM_fpclassify                         0x08006969   Thumb Code    48  fpclassify.o(i.__ARM_fpclassify)
+    _is_digit                                0x08006999   Thumb Code    14  __printf_wp.o(i._is_digit)
+    _get_lc_numeric                          0x080069a9   Thumb Code    44  lc_numeric_c.o(locale$$code)
+    _get_lc_ctype                            0x080069d5   Thumb Code    44  lc_ctype_c.o(locale$$code)
+    _fp_init                                 0x08006a01   Thumb Code    26  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x08006a19   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x08006a19   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    _printf_fp_dec                           0x08006a1b   Thumb Code     4  printf1.o(x$fpl$printf1)
+    _printf_fp_hex                           0x08006a1f   Thumb Code     4  printf2.o(x$fpl$printf2)
+    __I$use$fp                               0x08006a22   Number         0  usenofp.o(x$fpl$usenofp)
+    AHBPrescTable                            0x08006b20   Data          16  system_stm32h5xx.o(.rodata.AHBPrescTable)
+    Region$$Table$$Base                      0x08006d70   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08006d90   Number         0  anon$$obj.o(Region$$Table)
+    __ctype                                  0x08006db9   Data           0  lc_ctype_c.o(locale$$data)
     uwTickFreq                               0x20000000   Data           1  stm32h5xx_hal.o(.data..L_MergedGlobals)
     uwTickPrio                               0x20000004   Data           4  stm32h5xx_hal.o(.data..L_MergedGlobals)
     SystemCoreClock                          0x20000008   Data           4  system_stm32h5xx.o(.data.SystemCoreClock)
@@ -4005,9 +4005,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000259
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00006e80, Max: 0x00020000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00006ed0, Max: 0x00020000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00006e6c, Max: 0x00020000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00006ebc, Max: 0x00020000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -4231,79 +4231,79 @@ Memory Map of the image
     0x08005572   0x08005572   0x00000002   PAD
     0x08005574   0x08005574   0x0000006a   Code   RO           99    .text.MX_SPI1_Init  spi.o
     0x080055de   0x080055de   0x00000002   PAD
-    0x080055e0   0x080055e0   0x00000078   Code   RO          115    .text.MX_TIM2_Init  tim.o
+    0x080055e0   0x080055e0   0x00000076   Code   RO          115    .text.MX_TIM2_Init  tim.o
+    0x08005656   0x08005656   0x00000002   PAD
     0x08005658   0x08005658   0x00000002   Code   RO          134    .text.MemManage_Handler  stm32h5xx_it.o
     0x0800565a   0x0800565a   0x00000002   PAD
     0x0800565c   0x0800565c   0x00000002   Code   RO          130    .text.NMI_Handler   stm32h5xx_it.o
     0x0800565e   0x0800565e   0x00000002   PAD
     0x08005660   0x08005660   0x0000001a   Code   RO         1673    .text.OLED_Clear    oled.o
     0x0800567a   0x0800567a   0x00000002   PAD
-    0x0800567c   0x0800567c   0x000000a6   Code   RO         1675    .text.OLED_Display  oled.o
-    0x08005722   0x08005722   0x00000002   PAD
-    0x08005724   0x08005724   0x000002c0   Code   RO         1671    .text.OLED_Init     oled.o
-    0x080059e4   0x080059e4   0x00000052   Code   RO         1687    .text.OLED_Printf   oled.o
-    0x08005a36   0x08005a36   0x00000002   PAD
-    0x08005a38   0x08005a38   0x000002fc   Code   RO         1683    .text.OLED_ShowChar  oled.o
-    0x08005d34   0x08005d34   0x0000003c   Code   RO         1685    .text.OLED_ShowString  oled.o
-    0x08005d70   0x08005d70   0x00000002   Code   RO          144    .text.PendSV_Handler  stm32h5xx_it.o
-    0x08005d72   0x08005d72   0x00000002   PAD
-    0x08005d74   0x08005d74   0x000000ea   Code   RO          446    .text.RCCEx_PLL2_Config  stm32h5xx_hal_rcc_ex.o
-    0x08005e5e   0x08005e5e   0x00000002   PAD
-    0x08005e60   0x08005e60   0x000000d0   Code   RO         1174    .text.SPI_CloseTransfer  stm32h5xx_hal_spi.o
-    0x08005f30   0x08005f30   0x00000002   Code   RO          140    .text.SVC_Handler   stm32h5xx_it.o
-    0x08005f32   0x08005f32   0x00000002   PAD
-    0x08005f34   0x08005f34   0x00000004   Code   RO          146    .text.SysTick_Handler  stm32h5xx_it.o
-    0x08005f38   0x08005f38   0x000000be   Code   RO           13    .text.SystemClock_Config  main.o
-    0x08005ff6   0x08005ff6   0x00000002   PAD
-    0x08005ff8   0x08005ff8   0x000000ae   Code   RO         1656    .text.SystemInit    system_stm32h5xx.o
-    0x080060a6   0x080060a6   0x00000002   PAD
-    0x080060a8   0x080060a8   0x00000002   Code   RO          138    .text.UsageFault_Handler  stm32h5xx_it.o
-    0x080060aa   0x080060aa   0x00000002   PAD
-    0x080060ac   0x080060ac   0x000000dc   Code   RO           11    .text.main          main.o
-    0x08006188   0x08006188   0x0000003e   Code   RO         1898    CL$$btod_d2e        c_w.l(btod.o)
-    0x080061c6   0x080061c6   0x00000046   Code   RO         1900    CL$$btod_d2e_denorm_low  c_w.l(btod.o)
-    0x0800620c   0x0800620c   0x00000060   Code   RO         1899    CL$$btod_d2e_norm_op1  c_w.l(btod.o)
-    0x0800626c   0x0800626c   0x00000338   Code   RO         1908    CL$$btod_div_common  c_w.l(btod.o)
-    0x080065a4   0x080065a4   0x000000dc   Code   RO         1905    CL$$btod_e2e        c_w.l(btod.o)
-    0x08006680   0x08006680   0x0000002a   Code   RO         1902    CL$$btod_ediv       c_w.l(btod.o)
-    0x080066aa   0x080066aa   0x0000002a   Code   RO         1901    CL$$btod_emul       c_w.l(btod.o)
-    0x080066d4   0x080066d4   0x00000244   Code   RO         1907    CL$$btod_mult_common  c_w.l(btod.o)
-    0x08006918   0x08006918   0x00000030   Code   RO         1940    i.__ARM_fpclassify  m_wm.l(fpclassify.o)
-    0x08006948   0x08006948   0x0000000e   Code   RO         1799    i._is_digit         c_w.l(__printf_wp.o)
-    0x08006956   0x08006956   0x00000002   PAD
-    0x08006958   0x08006958   0x0000002c   Code   RO         1923    locale$$code        c_w.l(lc_numeric_c.o)
-    0x08006984   0x08006984   0x0000002c   Code   RO         1956    locale$$code        c_w.l(lc_ctype_c.o)
-    0x080069b0   0x080069b0   0x0000001a   Code   RO         2037    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x080069ca   0x080069ca   0x00000004   Code   RO         1834    x$fpl$printf1       fz_wm.l(printf1.o)
-    0x080069ce   0x080069ce   0x00000004   Code   RO         1836    x$fpl$printf2       fz_wm.l(printf2.o)
-    0x080069d2   0x080069d2   0x00000000   Code   RO         1939    x$fpl$usenofp       fz_wm.l(usenofp.o)
-    0x080069d2   0x080069d2   0x00000002   PAD
-    0x080069d4   0x080069d4   0x00000008   Data   RO         1758    .constdata          c_w.l(_printf_wctomb.o)
-    0x080069dc   0x080069dc   0x00000028   Data   RO         1787    .constdata          c_w.l(_printf_hex_int_ll_ptr.o)
-    0x08006a04   0x08006a04   0x00000011   Data   RO         1807    .constdata          c_w.l(__printf_flags_ss_wp.o)
-    0x08006a15   0x08006a15   0x00000026   Data   RO         1873    .constdata          c_w.l(_printf_fp_hex.o)
-    0x08006a3b   0x08006a3b   0x00000001   PAD
-    0x08006a3c   0x08006a3c   0x00000094   Data   RO         1896    .constdata          c_w.l(bigflt0.o)
-    0x08006ad0   0x08006ad0   0x00000010   Data   RO         1661    .rodata.AHBPrescTable  system_stm32h5xx.o
-    0x08006ae0   0x08006ae0   0x00000240   Data   RO         1690    .rodata.Font6x8     oled.o
-    0x08006d20   0x08006d20   0x00000020   Data   RO         2095    Region$$Table       anon$$obj.o
-    0x08006d40   0x08006d40   0x0000001c   Data   RO         1922    locale$$data        c_w.l(lc_numeric_c.o)
-    0x08006d5c   0x08006d5c   0x00000110   Data   RO         1955    locale$$data        c_w.l(lc_ctype_c.o)
+    0x0800567c   0x0800567c   0x000000f8   Code   RO         1677    .text.OLED_DisplayFast  oled.o
+    0x08005774   0x08005774   0x000002c0   Code   RO         1671    .text.OLED_Init     oled.o
+    0x08005a34   0x08005a34   0x00000052   Code   RO         1687    .text.OLED_Printf   oled.o
+    0x08005a86   0x08005a86   0x00000002   PAD
+    0x08005a88   0x08005a88   0x000002fc   Code   RO         1683    .text.OLED_ShowChar  oled.o
+    0x08005d84   0x08005d84   0x0000003c   Code   RO         1685    .text.OLED_ShowString  oled.o
+    0x08005dc0   0x08005dc0   0x00000002   Code   RO          144    .text.PendSV_Handler  stm32h5xx_it.o
+    0x08005dc2   0x08005dc2   0x00000002   PAD
+    0x08005dc4   0x08005dc4   0x000000ea   Code   RO          446    .text.RCCEx_PLL2_Config  stm32h5xx_hal_rcc_ex.o
+    0x08005eae   0x08005eae   0x00000002   PAD
+    0x08005eb0   0x08005eb0   0x000000d0   Code   RO         1174    .text.SPI_CloseTransfer  stm32h5xx_hal_spi.o
+    0x08005f80   0x08005f80   0x00000002   Code   RO          140    .text.SVC_Handler   stm32h5xx_it.o
+    0x08005f82   0x08005f82   0x00000002   PAD
+    0x08005f84   0x08005f84   0x00000004   Code   RO          146    .text.SysTick_Handler  stm32h5xx_it.o
+    0x08005f88   0x08005f88   0x000000be   Code   RO           13    .text.SystemClock_Config  main.o
+    0x08006046   0x08006046   0x00000002   PAD
+    0x08006048   0x08006048   0x000000ae   Code   RO         1656    .text.SystemInit    system_stm32h5xx.o
+    0x080060f6   0x080060f6   0x00000002   PAD
+    0x080060f8   0x080060f8   0x00000002   Code   RO          138    .text.UsageFault_Handler  stm32h5xx_it.o
+    0x080060fa   0x080060fa   0x00000002   PAD
+    0x080060fc   0x080060fc   0x000000dc   Code   RO           11    .text.main          main.o
+    0x080061d8   0x080061d8   0x0000003e   Code   RO         1898    CL$$btod_d2e        c_w.l(btod.o)
+    0x08006216   0x08006216   0x00000046   Code   RO         1900    CL$$btod_d2e_denorm_low  c_w.l(btod.o)
+    0x0800625c   0x0800625c   0x00000060   Code   RO         1899    CL$$btod_d2e_norm_op1  c_w.l(btod.o)
+    0x080062bc   0x080062bc   0x00000338   Code   RO         1908    CL$$btod_div_common  c_w.l(btod.o)
+    0x080065f4   0x080065f4   0x000000dc   Code   RO         1905    CL$$btod_e2e        c_w.l(btod.o)
+    0x080066d0   0x080066d0   0x0000002a   Code   RO         1902    CL$$btod_ediv       c_w.l(btod.o)
+    0x080066fa   0x080066fa   0x0000002a   Code   RO         1901    CL$$btod_emul       c_w.l(btod.o)
+    0x08006724   0x08006724   0x00000244   Code   RO         1907    CL$$btod_mult_common  c_w.l(btod.o)
+    0x08006968   0x08006968   0x00000030   Code   RO         1940    i.__ARM_fpclassify  m_wm.l(fpclassify.o)
+    0x08006998   0x08006998   0x0000000e   Code   RO         1799    i._is_digit         c_w.l(__printf_wp.o)
+    0x080069a6   0x080069a6   0x00000002   PAD
+    0x080069a8   0x080069a8   0x0000002c   Code   RO         1923    locale$$code        c_w.l(lc_numeric_c.o)
+    0x080069d4   0x080069d4   0x0000002c   Code   RO         1956    locale$$code        c_w.l(lc_ctype_c.o)
+    0x08006a00   0x08006a00   0x0000001a   Code   RO         2037    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x08006a1a   0x08006a1a   0x00000004   Code   RO         1834    x$fpl$printf1       fz_wm.l(printf1.o)
+    0x08006a1e   0x08006a1e   0x00000004   Code   RO         1836    x$fpl$printf2       fz_wm.l(printf2.o)
+    0x08006a22   0x08006a22   0x00000000   Code   RO         1939    x$fpl$usenofp       fz_wm.l(usenofp.o)
+    0x08006a22   0x08006a22   0x00000002   PAD
+    0x08006a24   0x08006a24   0x00000008   Data   RO         1758    .constdata          c_w.l(_printf_wctomb.o)
+    0x08006a2c   0x08006a2c   0x00000028   Data   RO         1787    .constdata          c_w.l(_printf_hex_int_ll_ptr.o)
+    0x08006a54   0x08006a54   0x00000011   Data   RO         1807    .constdata          c_w.l(__printf_flags_ss_wp.o)
+    0x08006a65   0x08006a65   0x00000026   Data   RO         1873    .constdata          c_w.l(_printf_fp_hex.o)
+    0x08006a8b   0x08006a8b   0x00000001   PAD
+    0x08006a8c   0x08006a8c   0x00000094   Data   RO         1896    .constdata          c_w.l(bigflt0.o)
+    0x08006b20   0x08006b20   0x00000010   Data   RO         1661    .rodata.AHBPrescTable  system_stm32h5xx.o
+    0x08006b30   0x08006b30   0x00000240   Data   RO         1690    .rodata.Font6x8     oled.o
+    0x08006d70   0x08006d70   0x00000020   Data   RO         2095    Region$$Table       anon$$obj.o
+    0x08006d90   0x08006d90   0x0000001c   Data   RO         1922    locale$$data        c_w.l(lc_numeric_c.o)
+    0x08006dac   0x08006dac   0x00000110   Data   RO         1955    locale$$data        c_w.l(lc_ctype_c.o)
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08006e70, Size: 0x00000b70, Max: 0x00008000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08006ec0, Size: 0x00000b70, Max: 0x00008000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08006e70   0x00000008   Data   RW          876    .data..L_MergedGlobals  stm32h5xx_hal.o
-    0x20000008   0x08006e78   0x00000004   Data   RW         1660    .data.SystemCoreClock  system_stm32h5xx.o
-    0x2000000c   0x08006e7c   0x00000002   Data   RW         1712    .data.ad9833_ctrl   ad9833.o
-    0x2000000e   0x08006e7e   0x00000002   PAD
+    0x20000000   0x08006ec0   0x00000008   Data   RW          876    .data..L_MergedGlobals  stm32h5xx_hal.o
+    0x20000008   0x08006ec8   0x00000004   Data   RW         1660    .data.SystemCoreClock  system_stm32h5xx.o
+    0x2000000c   0x08006ecc   0x00000002   Data   RW         1712    .data.ad9833_ctrl   ad9833.o
+    0x2000000e   0x08006ece   0x00000002   PAD
     0x20000010        -       0x00000060   Zero   RW         1943    .bss                c_w.l(libspace.o)
     0x20000070        -       0x0000003c   Zero   RW           43    .bss..L_MergedGlobals  adc.o
     0x200000ac        -       0x00000400   Zero   RW         1689    .bss.OLED_Buffer    oled.o
     0x200004ac        -       0x00000001   Zero   RW         1711    .bss.ad9833_fsel    ad9833.o
-    0x200004ad   0x08006e7e   0x00000003   PAD
+    0x200004ad   0x08006ece   0x00000003   PAD
     0x200004b0        -       0x00000068   Zero   RW           41    .bss.hadc1          adc.o
     0x20000518        -       0x00000078   Zero   RW          106    .bss.handle_GPDMA1_Channel0  spi.o
     0x20000590        -       0x00000078   Zero   RW           42    .bss.handle_GPDMA1_Channel1  adc.o
@@ -4329,7 +4329,7 @@ Image component sizes
        264          0          0          0         84       8147   i2c.o
         34          0          0          0          0        676   icache.o
        416         48          0          0          0       5127   main.o
-      1802          0        576          0       1024       9845   oled.o
+      1884          0        576          0       1024       9845   oled.o
        168          0          0          0         52       4402   opamp.o
        342          0          0          0        264       8550   spi.o
         48         12        600          0       1024        888   startup_stm32h503xx.o
@@ -4351,10 +4351,10 @@ Image component sizes
        118          0          0          0          0      30322   stm32h5xx_hal_tim_ex.o
         44          0          0          0          0       3825   stm32h5xx_it.o
        174          0         16          4          0       5417   system_stm32h5xx.o
-       162          0          0          0         76       7169   tim.o
+       160          0          0          0         76       7163   tim.o
 
     ----------------------------------------------------------------------
-     19148         98       1224         16       2816     436128   Object Totals
+     19228         98       1224         16       2816     436122   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         92          0          0          2          3          0   (incl. Padding)
 
@@ -4466,15 +4466,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     26492        362       1776         16       2912     437804   Grand Totals
-     26492        362       1776         16       2912     437804   ELF Image Totals
-     26492        362       1776         16          0          0   ROM Totals
+     26572        362       1776         16       2912     437798   Grand Totals
+     26572        362       1776         16       2912     437798   ELF Image Totals
+     26572        362       1776         16          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                28268 (  27.61kB)
+    Total RO  Size (Code + RO Data)                28348 (  27.68kB)
     Total RW  Size (RW Data + ZI Data)              2928 (   2.86kB)
-    Total ROM Size (Code + RO Data + RW Data)      28284 (  27.62kB)
+    Total ROM Size (Code + RO Data + RW Data)      28364 (  27.70kB)
 
 ==============================================================================
 

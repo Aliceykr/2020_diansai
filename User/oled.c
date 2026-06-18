@@ -99,7 +99,7 @@ void OLED_Clear(void)
 {
     for (uint16_t i = 0; i < sizeof(OLED_Buffer); i++)
         OLED_Buffer[i] = 0x00;
-    OLED_Display();
+    OLED_DisplayFast();
 }
 
 /* 显存全亮，自动刷屏 */
@@ -107,7 +107,7 @@ void OLED_Fill(void)
 {
     for (uint16_t i = 0; i < sizeof(OLED_Buffer); i++)
         OLED_Buffer[i] = 0xFF;
-    OLED_Display();
+    OLED_DisplayFast();
 }
 
 /* 在 (x,y) 设置/清除单个像素，color=1 点亮、0 熄灭；越界忽略 */
@@ -256,7 +256,7 @@ void OLED_ShowString(uint8_t x, uint8_t y, const char *str)
             y += 8;
         }
     }
-    OLED_Display();
+    OLED_DisplayFast();
 }
 
 /* 在 (x,y) 格式化输出（用法同 printf），写完自动刷屏 */
