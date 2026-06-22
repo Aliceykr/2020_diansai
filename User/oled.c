@@ -74,7 +74,7 @@ void OLED_Display(void)
     }
 }
 
-/* 整屏显存一次性刷出（水平寻址模式，比逐页快） */
+/* 整屏显存一次性刷出（水平寻址模式，按页发送，避免大栈分配） */
 void OLED_DisplayFast(void)
 {
     OLED_WriteCmd(0x20);
@@ -86,12 +86,13 @@ void OLED_DisplayFast(void)
     OLED_WriteCmd(0x00);
     OLED_WriteCmd(0x07);
 
-    uint8_t tx_buf[OLED_WIDTH * OLED_PAGES + 1];
-    tx_buf[0] = 0x40;
-    for (uint16_t i = 0; i < sizeof(OLED_Buffer); i++)
-        tx_buf[i + 1] = OLED_Buffer[i];
-
-    OLED_WriteDataBlock(tx_buf, sizeof(tx_buf));
+    uint8_t pkt[OLED_WIDTH + 1];
+    pkt[0] = 0x40;
+    for (uint8_t page = 0; page < OLED_PAGES; page++)
+    {
+        memcpy(pkt + 1, OLED_Buffer + page * OLED_WIDTH, OLED_WIDTH);
+        HAL_I2C_Master_Transmit(&hi2c2, OLED_ADDR << 1, pkt, sizeof(pkt), HAL_MAX_DELAY);
+    }
 }
 
 /* 清空显存（全灭），自动刷屏 */
