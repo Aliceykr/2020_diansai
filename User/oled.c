@@ -74,7 +74,7 @@ void OLED_Display(void)
     }
 }
 
-/* 整屏显存一次性刷出（水平寻址模式，按页发送，避免大栈分配） */
+/* 整屏显存一次性刷出（单次 I2C 事务，~9ms @800kHz） */
 void OLED_DisplayFast(void)
 {
     OLED_WriteCmd(0x20);
@@ -86,13 +86,10 @@ void OLED_DisplayFast(void)
     OLED_WriteCmd(0x00);
     OLED_WriteCmd(0x07);
 
-    uint8_t pkt[OLED_WIDTH + 1];
-    pkt[0] = 0x40;
-    for (uint8_t page = 0; page < OLED_PAGES; page++)
-    {
-        memcpy(pkt + 1, OLED_Buffer + page * OLED_WIDTH, OLED_WIDTH);
-        HAL_I2C_Master_Transmit(&hi2c2, OLED_ADDR << 1, pkt, sizeof(pkt), HAL_MAX_DELAY);
-    }
+    uint8_t tx_buf[OLED_WIDTH * OLED_PAGES + 1];
+    tx_buf[0] = 0x40;
+    memcpy(tx_buf + 1, OLED_Buffer, sizeof(OLED_Buffer));
+    HAL_I2C_Master_Transmit(&hi2c2, OLED_ADDR << 1, tx_buf, sizeof(tx_buf), HAL_MAX_DELAY);
 }
 
 /* 清空显存（全灭），自动刷屏 */
@@ -242,9 +239,7 @@ void OLED_ShowChar(uint8_t x, uint8_t y, char ch)
         }
     }
 }
-
-/* 在 (x,y) 写字符串，每字符宽 6 像素，到右边界自动折到下一行。
-   写完自动刷屏，无需再手动调 OLED_Display() */
+/* 在 (x,y) 写字符串，每字符宽 6 像素，到右边界自动折到下一行 */
 void OLED_ShowString(uint8_t x, uint8_t y, const char *str)
 {
     while (*str)
@@ -257,10 +252,10 @@ void OLED_ShowString(uint8_t x, uint8_t y, const char *str)
             y += 8;
         }
     }
-    OLED_DisplayFast();
 }
 
-/* 在 (x,y) 格式化输出（用法同 printf），写完自动刷屏 */
+
+/* 在 (x,y) 格式化输出（用法同 printf） */
 void OLED_Printf(uint8_t x, uint8_t y, const char *fmt, ...)
 {
     char buf[32];
