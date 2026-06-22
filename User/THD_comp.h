@@ -3,7 +3,10 @@
 
 #include "main.h"
 #include "ad9833.h"
+#include "ADC_samp.h"
+#include <math.h>
 
 void THD_Comp_Init(void);
+float THD_Calc(void);
 
 #endif
