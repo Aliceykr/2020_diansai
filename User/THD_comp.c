@@ -18,5 +18,6 @@ float THD_Calc(void)
     if (v1 < 1e-6f) return 0.0f;
 
     float sum_sq = v2*v2 + v3*v3 + v4*v4 + v5*v5;
+    
     return sqrtf(sum_sq) / v1 * 100.0f;
 }

@@ -2,19 +2,17 @@
 #include "arm_math.h"
 #include <math.h>
 
-#define BUFFER_SIZE 256
-
 volatile uint8_t adc_ready_flag = 0;
 
 static float32_t fft_input[ADC_SAMP_MAX_SIZE * 2];
-static float32_t fft_magnitude[ADC_SAMP_MAX_SIZE / 2];
-static uint16_t adc_buffer[BUFFER_SIZE] = {0};
+float32_t fft_magnitude[ADC_SAMP_MAX_SIZE / 2];
+static uint16_t adc_buffer[BUFFER_SIZE];
 
-void ADC_samp_Init(uint16_t adc_buffer[], uint16_t buffer_size)
+void ADC_samp_Init(void)
 {
     HAL_OPAMP_GetState(&hopamp1);
     HAL_TIM_Base_Start(&htim2);
-    HAL_ADC_Start_DMA(&hadc1, (uint16_t *)adc_buffer, buffer_size);
+    HAL_ADC_Start_DMA(&hadc1, adc_buffer, BUFFER_SIZE);
 }
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
@@ -33,10 +31,9 @@ void ADC_samp_Stop(void)
     HAL_TIM_Base_Stop(&htim2);
 }
 
-void ADC_samp_Process()
+void ADC_samp_Process(void)
 {
-    if (!adc_ready_flag || BUFFER_SIZE > ADC_SAMP_MAX_SIZE)
-        return;
+    while (!adc_ready_flag); //等待ADC采样完成
 
     for (uint16_t i = 0; i < BUFFER_SIZE; i++)
     {
